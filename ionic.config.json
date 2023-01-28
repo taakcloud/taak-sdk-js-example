@@ -1,0 +1,7 @@
+{
+  "name": "taakWebPush",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
