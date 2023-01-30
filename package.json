@@ -2,6 +2,15 @@
   "name": "taakWebPush",
   "version": "0.0.1",
   "private": true,
+  "bugs": {
+    "url": "https://github.com/taakcloud/taak-web-push-example/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/taakcloud/taak-web-push-example.git"
+  },
+  "license": "Apache-2.0",
+  "author": "Sid Morad <SidMorad@users.noreply.github.com>",
   "dependencies": {
     "@capacitor/app": "4.1.1",
     "@capacitor/core": "4.6.2",
@@ -19,9 +28,11 @@
     "@types/react-dom": "^18.0.6",
     "@types/react-router": "^5.1.11",
     "@types/react-router-dom": "^5.1.7",
+    "dotenv": "^16.0.3",
     "history": "^4.9.0",
-    "ionicons": "^6.0.3",
+    "ionicons": "^6.1.1",
     "react": "^18.2.0",
+    "react-device-detect": "^2.2.2",
     "react-dom": "^18.2.0",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
@@ -68,5 +79,5 @@
     "@capacitor/cli": "4.6.2",
     "react-scripts": "5.0.1"
   },
-  "description": "An Ionic project"
+  "description": "Usage example of Taak Web Push Notification API"
 }
