@@ -2,7 +2,7 @@
   "name": "taakWebPush",
   "version": "0.0.1",
   "private": true,
-  "homepage": "https://taakcloud.github.io/taak-web-push-example",
+  "homepage": "https://web-push-example.taakcloud.com",
   "bugs": {
     "url": "https://github.com/taakcloud/taak-web-push-example/issues"
   },
