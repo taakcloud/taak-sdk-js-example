@@ -3,7 +3,7 @@ const ignored = self.__WB_MANIFEST
 
 // Your custom service worker code goes here.
 
-const staticCacheName = 'pages-cached-v3'
+const staticCacheName = 'pages-cached-v1'
 
 const filesToCache = []
 
@@ -23,17 +23,17 @@ const dynamicPostfixToCache = [
 ]
 
 const whiteListHostToCache = [
-  'auth.taakcloud.com',
   'a.tile.openstreetmap.org',
   'b.tile.openstreetmap.org',
   'c.tile.openstreetmap.org',
 ]
 
 const blackListHostToCache = ['www.google-analytics.com']
-
+// eslint-disable-next-line no-restricted-globals
 self.addEventListener('install', (event) => {
   console.log('Attempting to install service worker and cache static assets')
   try {
+    // eslint-disable-next-line no-restricted-globals
     if (self.location.hostname === 'taakcloud.com' && !!filesToCache) {
       event.waitUntil(
         caches.open(staticCacheName).then((cache) => {
@@ -45,7 +45,7 @@ self.addEventListener('install', (event) => {
     console.log('Cache#addAll failed.', error)
   }
 })
-
+// eslint-disable-next-line no-restricted-globals
 self.addEventListener('fetch', function (event) {
   event.respondWith(
     caches
@@ -90,7 +90,7 @@ self.addEventListener('fetch', function (event) {
       })
   )
 })
-
+// eslint-disable-next-line no-restricted-globals
 self.addEventListener('activate', (event) => {
   console.log('Activating new service worker...')
 
@@ -124,9 +124,10 @@ function handlePushEvent(event) {
         options.tag = DEFAULT_TAG
       }
       if (!options.icon) {
-        options.icon = '/assets/img/appicon.png'
+        options.icon = '/assets/icon/icon.png'
       }
-      return registration.showNotification(title, options)
+      // eslint-disable-next-line no-undef
+      return registration?.showNotification(title, options)
     })
     .catch((err) => {
       console.error('Push event caused an error: ', err)
@@ -135,21 +136,25 @@ function handlePushEvent(event) {
       const options = {
         body: event.data.text(),
         tag: DEFAULT_TAG,
+        icon: '/assets/icon/icon.png',
       }
-      return registration.showNotification(title, options)
+      // eslint-disable-next-line no-undef
+      return registration?.showNotification(title, options)
     })
 }
-
+// eslint-disable-next-line no-restricted-globals
 self.addEventListener('push', function (event) {
   event.waitUntil(handlePushEvent(event))
 })
 
 function openWindow(path) {
+  // eslint-disable-next-line no-undef
   return clients?.openWindow(path)
 }
 
 // This is here just to highlight the simple version of notification click.
 // Normally you would only have one notification click listener.
+// eslint-disable-next-line no-restricted-globals
 self.addEventListener('notificationclick', function (event) {
   const clickedNotification = event.notification
   clickedNotification.close()
@@ -160,7 +165,7 @@ self.addEventListener('notificationclick', function (event) {
 })
 
 /*** END PUSH NOTIFICATION ***/
-
+// eslint-disable-next-line no-restricted-globals
 self.addEventListener('unhandledrejection', (event) => {
   console.log('UnHandledRejection', event.reason)
 })
