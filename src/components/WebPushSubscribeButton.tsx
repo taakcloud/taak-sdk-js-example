@@ -36,7 +36,7 @@ const WebPushSubscribeButton: FC<WebPushSubscribeButtonProps> = ({ userId, onSuc
       auth: subscriptionObject.keys.auth,
     }
     const res: TaakResponse = await taakSdkClient.subscribeWebPush(cmd)
-    if (res.status === 204) {
+    if (res.status === 201) {
       presentToast({ message: 'Success subscription', color: 'success', duration: 3000 })
       onSuccess(res.data)
     }
